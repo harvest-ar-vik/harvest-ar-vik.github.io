@@ -10,16 +10,24 @@
             margin: 0;
             padding: 0;
             text-align: center;
-            background-color: #f8f8f8;
+            background-color: #f4f4f4;
             color: #333;
         }
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+            color: #fff;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
         .container {
-            max-width: 1000px;
-            margin: 50px auto;
+            max-width: 1200px;
+            margin: 30px auto;
             padding: 20px;
             background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
         h1 {
             color: #2c3e50;
@@ -34,11 +42,13 @@
             background: #fff;
             padding: 15px;
             border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            overflow: hidden;
         }
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
         .card img {
             width: 100%;
@@ -59,12 +69,13 @@
         .contact {
             margin-top: 30px;
             font-size: 18px;
-            padding: 15px;
-            background: #f1f1f1;
+            padding: 20px;
+            background: #2c3e50;
+            color: #fff;
             border-radius: 8px;
         }
         .contact a {
-            color: #2980b9;
+            color: #f39c12;
             text-decoration: none;
             font-weight: bold;
         }
@@ -74,14 +85,15 @@
     </style>
 </head>
 <body>
+    <div class="header">Harvest AR-VIK – Оптовый поставщик</div>
+    
     <div class="container">
-        <h1>Harvest AR-VIK</h1>
-        <h2>Ваш надежный поставщик муки, круп и масла</h2>
+        <h1>Ваш надежный поставщик муки, круп и масла</h1>
         <p>Мы предлагаем широкий ассортимент качественных продуктов питания оптом:</p>
         
         <div class="products">
             <div class="card">
-                <img src="flour.jpg" alt="Мука высший сорт">
+                <img src="flour.png" alt="Мука высший сорт">
                 <h3>Мука высший сорт 50 кг</h3>
                 <p>Качественная мука из Самары для выпечки и производства.</p>
             </div>
@@ -91,7 +103,7 @@
                 <p>Крупа из Краснодара, идеально подходит для приготовления каш и блюд восточной кухни.</p>
             </div>
             <div class="card">
-                <img src="oil.png" alt="Масло растительное">
+                <img src="oil.jpg" alt="Масло растительное">
                 <h3>Масло растительное</h3>
                 <p>Заводское производство из Самары, высокое качество и чистота.</p>
             </div>
