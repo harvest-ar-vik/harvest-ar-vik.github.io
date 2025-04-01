@@ -45,6 +45,7 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
             overflow: hidden;
+            position: relative;
         }
         .card:hover {
             transform: translateY(-5px);
@@ -52,19 +53,39 @@
         }
         .card img {
             width: 100%;
-            border-radius: 12px;
-            margin-bottom: 10px;
-            height: 200px;
+            height: 100%;
             object-fit: cover;
+            border-radius: 12px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1; /* Sends image to the background */
         }
         .card h3 {
             margin: 10px 0;
-            color: #2c3e50;
+            color: #fff;
             font-size: 20px;
+            position: relative;
         }
         .card p {
             font-size: 16px;
-            color: #555;
+            color: #fff;
+            position: relative;
+        }
+        .card .text-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.2); /* White overlay with 20% transparency */
+            color: #2c3e50;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 12px;
         }
         .contact {
             margin-top: 30px;
@@ -93,33 +114,33 @@
         
         <div class="products">
             <div class="card">
-                <img src="/flour.jpg" alt="Мука высший сорт">
-                <h3>Мука высший сорт 50 кг</h3>
+                <img src="flour.jpg" alt="Мука высший сорт">
+                <div class="text-overlay">Мука высший сорт 50 кг</div>
                 <p>Качественная мука из Самары для выпечки и производства.</p>
             </div>
             <div class="card">
                 <img src="rice.jpg" alt="Рис круглый сорт">
-                <h3>Рис круглый сорт</h3>
+                <div class="text-overlay">Рис круглый сорт</div>
                 <p>Крупа из Краснодара, идеально подходит для приготовления каш и блюд восточной кухни.</p>
             </div>
             <div class="card">
                 <img src="oil.png" alt="Масло растительное">
-                <h3>Масло растительное</h3>
+                <div class="text-overlay">Масло растительное</div>
                 <p>Заводское производство из Самары, высокое качество и чистота.</p>
             </div>
             <div class="card">
                 <img src="sugar.jpg" alt="Сахар">
-                <h3>Сахар</h3>
+                <div class="text-overlay">Сахар</div>
                 <p>Натуральный сахар для различных нужд.</p>
             </div>
             <div class="card">
                 <img src="pasta.jpg" alt="Макароны">
-                <h3>Макароны</h3>
+                <div class="text-overlay">Макароны</div>
                 <p>Отличный выбор макаронных изделий для домашнего и профессионального приготовления.</p>
             </div>
             <div class="card">
                 <img src="buckwheat.jpg" alt="Гречка">
-                <h3>Гречка</h3>
+                <div class="text-overlay">Гречка</div>
                 <p>Питательная и полезная гречневая крупа.</p>
             </div>
         </div>
