@@ -10,24 +10,16 @@
             margin: 0;
             padding: 0;
             text-align: center;
-            background-color: #f4f4f4;
+            background-color: #f8f8f8;
             color: #333;
         }
-        .header {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-            color: #fff;
-            padding: 20px;
-            font-size: 24px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
         .container {
-            max-width: 1200px;
-            margin: 30px auto;
+            max-width: 1000px;
+            margin: 50px auto;
             padding: 20px;
             background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
         h1 {
             color: #2c3e50;
@@ -42,13 +34,12 @@
             background: #fff;
             padding: 15px;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            cursor: pointer;
         }
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
         .card img {
             width: 100%;
@@ -69,71 +60,103 @@
         .contact {
             margin-top: 30px;
             font-size: 18px;
-            padding: 20px;
-            background: #2c3e50;
-            color: #fff;
+            padding: 15px;
+            background: #f1f1f1;
             border-radius: 8px;
         }
         .contact a {
-            color: #f39c12;
+            color: #2980b9;
             text-decoration: none;
             font-weight: bold;
         }
         .contact a:hover {
             text-decoration: underline;
         }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 12px;
+            width: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: left;
+        }
+        .close {
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <div class="header">Harvest AR-VIK – Оптовый поставщик</div>
-    
     <div class="container">
-        <h1>Ваш надежный поставщик муки, круп и масла</h1>
+        <h1>Harvest AR-VIK</h1>
+        <h2>Ваш надежный поставщик муки, круп и масла</h2>
         <p>Мы предлагаем широкий ассортимент качественных продуктов питания оптом:</p>
         
         <div class="products">
-            <div class="card">
+            <div class="card" onclick="openModal('Мука высший сорт 50 кг', 'Качественная мука из Самары для выпечки и производства.')">
                 <img src="flour.jpg" alt="Мука высший сорт">
                 <h3>Мука высший сорт 50 кг</h3>
-                <p>Качественная мука из Самары для выпечки и производства.</p>
             </div>
-            <div class="card">
+            <div class="card" onclick="openModal('Рис круглый сорт', 'Крупа из Краснодара, идеально подходит для приготовления каш и блюд восточной кухни.')">
                 <img src="rice.jpg" alt="Рис круглый сорт">
                 <h3>Рис круглый сорт</h3>
-                <p>Крупа из Краснодара, идеально подходит для приготовления каш и блюд восточной кухни.</p>
             </div>
-            <div class="card">
-                <img src="oil.png" alt="Масло растительное">
+            <div class="card" onclick="openModal('Масло растительное', 'Заводское производство из Самары, высокое качество и чистота.')">
+                <img src="oil.jpg" alt="Масло растительное">
                 <h3>Масло растительное</h3>
-                <p>Заводское производство из Самары, высокое качество и чистота.</p>
             </div>
-            <div class="card">
+            <div class="card" onclick="openModal('Сахар', 'Натуральный сахар для различных нужд.')">
                 <img src="sugar.jpg" alt="Сахар">
                 <h3>Сахар</h3>
-                <p>Натуральный сахар для различных нужд.</p>
             </div>
-            <div class="card">
+            <div class="card" onclick="openModal('Макароны', 'Отличный выбор макаронных изделий для домашнего и профессионального приготовления.')">
                 <img src="pasta.jpg" alt="Макароны">
                 <h3>Макароны</h3>
-                <p>Отличный выбор макаронных изделий для домашнего и профессионального приготовления.</p>
             </div>
-            <div class="card">
+            <div class="card" onclick="openModal('Гречка', 'Питательная и полезная гречневая крупа.')">
                 <img src="buckwheat.jpg" alt="Гречка">
                 <h3>Гречка</h3>
-                <p>Питательная и полезная гречневая крупа.</p>
             </div>
-            <div class="card">
-                <img src="rcola.jpg" alt="Cola">
-                <h3>Кола</h3>
-                <p>Тот самый Американский вкус!</p>
-            </div> 
         </div>
         
         <div class="contact">
             <p>Свяжитесь с нами для заказа:</p>
             <p>Email: <a href="mailto:Maxir1976@yandex.ru">Maxir1976@yandex.ru</a></p>
             <p>Телефон: <a href="tel:+79052872727">+7 905 287 27 27</a></p>
+            <p>Адрес: База Салова 16/3, СПБ</p>
         </div>
     </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modal-title"></h3>
+            <p id="modal-description"></p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(title, description) {
+            document.getElementById("modal-title").textContent = title;
+            document.getElementById("modal-description").textContent = description;
+            document.getElementById("modal").style.display = "block";
+        }
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+    </script>
 </body>
 </html>
