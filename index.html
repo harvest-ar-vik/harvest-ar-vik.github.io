@@ -90,9 +90,17 @@
             width: 50%;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             text-align: left;
+            position: relative;
+        }
+        .modal-content img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
         }
         .close {
-            float: right;
+            position: absolute;
+            top: 10px;
+            right: 15px;
             font-size: 28px;
             font-weight: bold;
             cursor: pointer;
@@ -106,29 +114,13 @@
         <p>Мы предлагаем широкий ассортимент качественных продуктов питания оптом:</p>
         
         <div class="products">
-            <div class="card" onclick="openModal('Мука высший сорт 50 кг', 'Качественная мука из Самары для выпечки и производства.')">
+            <div class="card" onclick="openModal('flour.jpg', 'Мука высший сорт 50 кг', 'Качественная мука из Самары для выпечки и производства.')">
                 <img src="flour.jpg" alt="Мука высший сорт">
                 <h3>Мука высший сорт 50 кг</h3>
             </div>
-            <div class="card" onclick="openModal('Рис круглый сорт', 'Крупа из Краснодара, идеально подходит для приготовления каш и блюд восточной кухни.')">
+            <div class="card" onclick="openModal('rice.jpg', 'Рис круглый сорт', 'Крупа из Краснодара, идеально подходит для приготовления каш и блюд восточной кухни.')">
                 <img src="rice.jpg" alt="Рис круглый сорт">
                 <h3>Рис круглый сорт</h3>
-            </div>
-            <div class="card" onclick="openModal('Масло растительное', 'Заводское производство из Самары, высокое качество и чистота.')">
-                <img src="oil.jpg" alt="Масло растительное">
-                <h3>Масло растительное</h3>
-            </div>
-            <div class="card" onclick="openModal('Сахар', 'Натуральный сахар для различных нужд.')">
-                <img src="sugar.jpg" alt="Сахар">
-                <h3>Сахар</h3>
-            </div>
-            <div class="card" onclick="openModal('Макароны', 'Отличный выбор макаронных изделий для домашнего и профессионального приготовления.')">
-                <img src="pasta.jpg" alt="Макароны">
-                <h3>Макароны</h3>
-            </div>
-            <div class="card" onclick="openModal('Гречка', 'Питательная и полезная гречневая крупа.')">
-                <img src="buckwheat.jpg" alt="Гречка">
-                <h3>Гречка</h3>
             </div>
         </div>
         
@@ -140,22 +132,26 @@
         </div>
     </div>
 
-    <div id="modal" class="modal">
-        <div class="modal-content">
+    <div id="modal" class="modal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
             <span class="close" onclick="closeModal()">&times;</span>
+            <img id="modal-img" src="" alt="">
             <h3 id="modal-title"></h3>
             <p id="modal-description"></p>
         </div>
     </div>
 
     <script>
-        function openModal(title, description) {
+        function openModal(image, title, description) {
+            document.getElementById("modal-img").src = image;
             document.getElementById("modal-title").textContent = title;
             document.getElementById("modal-description").textContent = description;
             document.getElementById("modal").style.display = "block";
         }
-        function closeModal() {
-            document.getElementById("modal").style.display = "none";
+        function closeModal(event) {
+            if (!event || event.target === document.getElementById("modal")) {
+                document.getElementById("modal").style.display = "none";
+            }
         }
     </script>
 </body>
